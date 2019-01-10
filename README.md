@@ -1,2 +1,3 @@
-# lecture-demos
-info340b-wi19 lecture demo code in case you want to see the code we used in class
+# Lecture Demos
+
+Code for in-class lecture demos, for the _Client-Side Web Development_ course at the UW iSchool.

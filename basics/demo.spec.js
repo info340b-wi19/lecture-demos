@@ -14,6 +14,7 @@ describe('Source code is valid', () => {
       'html-req-lang':true,
       'attr-name-style': false, //for meta tags
       'line-end-style':false, //either way
+      'line-no-trailing-whitespace':false, //don't need to beautify
       'indent-style':false, //can mix/match
       'indent-width':false, //don't need to beautify
       'id-class-style':false, //I like dashes in classnames
@@ -22,12 +23,12 @@ describe('Source code is valid', () => {
 
     const htmlfiles = fs.readdirSync(__dirname).filter((f) => f.endsWith('.html'));
     for(let f of htmlfiles) {
-      await expect(f).toHaveNoHtmlLintErrorsAsync(lintOpts);
+      await expect(__dirname+'/'+f).toHaveNoHtmlLintErrorsAsync(lintOpts);
     }
   })  
 
   test('CSS validates without errors', async () => {
-    await expect('css/*.css').toHaveNoCssLintErrorsAsync(); //test all files in css folder
+    await expect(__dirname+'/css/*.css').toHaveNoCssLintErrorsAsync(); //test all files in css folder
   })
 
   test('JavaScript lints without errors', () => {
@@ -35,7 +36,7 @@ describe('Source code is valid', () => {
       const jsfiles = fs.readdirSync(__dirname+'/js').filter((f) => f.endsWith('.js'));
 
       for(let f of jsfiles) {
-        expect(['js/'+f]).toHaveNoEsLintErrors();
+        expect([__dirname+'/js/'+f]).toHaveNoEsLintErrors();
       }
     }
   })

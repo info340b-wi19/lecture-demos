@@ -2,7 +2,7 @@ h1 {
     font-family: 'Helvetica';
     color: white;
     background-color: #333; /*dark gray*/
-    padding: 2em;
+    padding: 2em 1em;
 }
 
 p {
@@ -16,4 +16,8 @@ li {
 em {
     font-style: normal;
     text-decoration: underline;
-  }
+}
+
+img {
+    max-width: 300px;
+}
