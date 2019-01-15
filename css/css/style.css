@@ -28,3 +28,31 @@ p.thing-a {
 .thing-b {
     margin-top: 1em;
 }
+
+/* 
+a:link { color: hotpink }
+
+a:visited { color: rgb(97, 15, 15); }
+
+a:hover { font-size: 3em;
+            color: orange;
+            font-weight: 900; }
+
+a:focus {  font-size: 3em;
+    color: orange;
+    font-weight: 900;
+
+} */
+
+/* 
+li:last-child {
+    color: orangered;
+} */
+
+/* li:nth-child(2){
+    color:magenta;
+} */
+
+/* li:nth-of-type(even) {
+    background-color:#eee;
+} */
