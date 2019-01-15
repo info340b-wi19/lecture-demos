@@ -1,5 +1,7 @@
 
-
+/* h1 {
+    color: white;
+} */
 
 .first p.second {
     color:blue;
@@ -29,30 +31,30 @@ p.thing-a {
     margin-top: 1em;
 }
 
-/* 
+
 a:link { color: hotpink }
 
-a:visited { color: rgb(97, 15, 15); }
+a:visited { color: rgb(39, 41, 172); }
 
-a:hover { font-size: 3em;
+a:hover, a:focus { font-size: 3em;
             color: orange;
             font-weight: 900; }
 
-a:focus {  font-size: 3em;
+/* a:focus {  font-size: 3em;
     color: orange;
-    font-weight: 900;
+    font-weight: 900; */
 
-} */
+/* } */
 
-/* 
+
 li:last-child {
     color: orangered;
-} */
+}
 
-/* li:nth-child(2){
+ li:nth-child(2){
     color:magenta;
-} */
+}
 
-/* li:nth-of-type(even) {
+li:nth-of-type(even) {
     background-color:#eee;
-} */
+}
