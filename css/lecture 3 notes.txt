@@ -132,6 +132,81 @@ It applies to both of the paragraphs (even the second)
 
 -----
 
+SLIDE 6
+Simple CSS Selectors
+
+-----------------------
+
+SLIDE 7
+CSS Group Selectors
+
+AND
+OR
+Further down the page wins
+More specific wins
+
+--------------------------
+
+SLIDE 8
+
+Combined Selectors
+(no comma or space between)
+
+--------------------
+
+SLIDE 9
+Descendant Selectors
+
+Space between
+
+---------------------
+
+SLIDE 10
+Descendant Selectors (2)
+
+Child selectors > 
+
+
+-----------------
+
+SLIDE 11
+
+Psuedo classes
+Select elements based on what "state" the element is in
+
+
+-----------------
+
+SLIDE 12
+
+Psuedo-classes (2)
+
+checked, first, last child, 
+
+-----------------
+
+SLIDE 13
+
+nth selectors
+
+---------------------
+
+SLIDE 14
+
+Attribute Selectors
+
+attributes are parameters in some tags, like href in an anchor tg, src value in an image, or lang value in html tag
+
+
+----------------------
+
+SLIDE 15
+
+Chrome Dev Tools
+
+
+
+
 
 Psuedo Classes
 CSS supports a bunch of pseudo classes. 
