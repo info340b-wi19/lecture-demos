@@ -1,0 +1,28 @@
+
+.first p.second {
+    color:blue;
+}
+
+.first .second {
+    color:red
+}
+
+.boxes p {
+    border: 2px solid rebeccapurple;
+    padding: .5em;
+    padding-bottom: 2em;
+    margin-left: 1em;
+    background-color: orange;
+    width: 200px;
+    /* display: inline-block; */
+}
+
+p.thing-a {
+    margin-bottom: 2em;
+    padding-bottom: 4em;
+    float: right;
+}
+
+.thing-b {
+    margin-top: 1em;
+}
