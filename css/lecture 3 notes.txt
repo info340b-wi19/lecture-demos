@@ -8,13 +8,13 @@ You are not required to work on one of these. You won't lose points at all
 But realize you might lose some of your work as we progress.
 -------------------------
 Slide 3
-Upding Problem Sets
+Updating Problem Sets
 
 Once in a while there are errors in the problem sets
 We find bugs once in a while. Likely will have to be updated.
 If we need to fix bugs in the test suites. Then you need to upload
 
-We can't push to your indivual repos. You need to pull it on your own. we will push the fixes the the main repo
+We can't push to your indivdual repos. You need to pull it on your own. we will push the fixes the the main repo
 You will need to add another remote link to your repo (bookmark). 
 
 you don't have to name this reference link "upstream"
@@ -43,7 +43,7 @@ Feel free to ping them if you need help.
 SLIDE 5
 Poll Everywhere
 
-Have you dont the reading (through chapter 6) for today
+Have you don't the reading (through chapter 6) for today
 ---
 This is totally anonymous - Just want to see if people are doing the reading.
 You'll do better if you keep up with the reading. Fortunately it isn't a large amount of reading
@@ -98,7 +98,8 @@ B and C are out
 Find any nav element, find any highlight element and then find any anchor elements inside of that
 
 The diff between A and D means that the > requires that the children are direct decendents
-
+ 
+So A and D are correct.
 
 CSS Diner game is linked in the text to practice
 
@@ -109,7 +110,8 @@ When we say it has both classes, the element has to have both.
 
 So <div class="first second">
 
-A does not have that.
+A does not have that. It's inside an element that has class="first", but that's not the same. 
+The element itself literally needs to have both classes.
 
 B this will make all the paragraphs green because they all are direct descendents of divs
 
@@ -125,7 +127,7 @@ Only be as specific as we need to be
 
 Start with as general as possible
 
-d: p:last-chile
+d: p:last-child
 It applies to both of the paragraphs (even the second)
 
 -----
