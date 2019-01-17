@@ -85,7 +85,7 @@ and not collapsed.
 Which of the below CSS rules is equivalent to the first? 
 This one is harder
 
-The correct answer is first number is top and bottom, second number is left and right
+The correct answer is D. The first number is top and bottom, second number is left and right
 
 The reason for this question, you can declare alot of properties using shortcut properties
 You can enumerate all 4 for padding,
