@@ -41,12 +41,17 @@ body {
 
 
 /* navigation */
-nav li {
+/* nav li {
     display: inline-block;
     border: 1px solid black ;
     border-bottom-width:5px;
     padding: .5em;
-}
+} */
+
+/* nav li {
+    display: inline;
+    width: 200px;
+} */
 
 
 /* container */
