@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Bootstrap Grid Demo</title>
+  </head>
+  <body class="container">
+    <h1 class="py-2">Bootstrap Grid Demo</h1>
+    <div class="py-2">
+        <h3>The grid:</h3>
+        <p>All containers have 12 columns of space.</p>
+        <p>Make a <code>&lt;div class=&quot;row&quot;&gt;&lt;/div&gt;</code> around the column elements.</p>
+    </div>
+    <h3 class="py-2">Basic grid examples:</h3>
+    <div class="py-2">
+        <h4>  12 one column divs </h4>
+        <p><code>&lt;div class=&quot;col-1 text-center border&quot;&gt;#&lt;/div&gt;</code></p>
+        <div class="row">
+            <div class="col-1 text-center border">1</div>
+            <div class="col-1 text-center border">2</div>
+            <div class="col-1 text-center border">3</div>
+            <div class="col-1 text-center border">4</div>
+            <div class="col-1 text-center border">5</div>
+            <div class="col-1 text-center border">6</div>
+            <div class="col-1 text-center border">7</div>
+            <div class="col-1 text-center border">8</div>
+            <div class="col-1 text-center border">9</div>
+            <div class="col-1 text-center border">10</div>
+            <div class="col-1 text-center border">11</div>
+            <div class="col-1 text-center border">12</div>
+        </div>
+    </div>
+    <div class="py-2">
+        <h4>  A three column div </h4>
+        <p><code>&lt;div class=&quot;col-3 text-center border&quot;&gt;#&lt;/div&gt;</code></p>
+        <div class="row">
+            <div class="col-3 text-center border">3-cols</div>
+        </div>
+    </div>
+    
+    <div class="py-2"></div>
+    <h3 class="py-2">Responsive design (changes with screen size)</h3>
+    
+    <div class="py-2">
+    <p> Screen size is divided into 5 sizes</p>
+        <table class="table">
+            <tr>
+                <th scope="col">Screen Size</th>
+                <th scope="col">Extra small</th>
+                <th scope="col">Small</th>
+                <th scope="col">Medium</th>
+                <th scope="col">Large</th>
+                <th scope="col">Extra Large</th>
+            </tr>
+            <tr>
+                <th scope="row">Screen size</th>
+                <td>≥0px</td>
+                <td>≥576px</td>
+                <td>≥768px</td>
+                <td>≥992px</td>
+                <td>≥1200px</td>
+            </tr>
+            <tr>
+                <th scope="row">Class Prefix</th>
+                <td>.col-</td>
+                <td>.col-sm-</td>
+                <td>.col-md-</td>
+                <td>.col-lg-</td>
+                <td>.col-xl-</td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <div class="py-2">
+        <h4> All divs use less columns on larger screens</h4>
+        <code>&lt;div class=&quot;col-12 col-sm-6 col-md-3 col-lg-1 text-center border&quot;&gt;#&lt;/div&gt;</code>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">1</div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">2</div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">3</div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">4</div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">5</div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">6</div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">7</div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">8</div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">9</div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">10</div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">11</div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-1 text-center border">12</div>
+        </div>
+    </div>
+
+    <div class="py-2">
+        <h4> A div that only appears on large screens</h4>
+        <code>&lt;div class=&quot;d-none d-lg-block col-12 text-center border&quot;&gt;...&lt;/div&gt;</code>
+        <div class="row">
+            <div class="d-none d-lg-block col-12 text-center border">Only appears on large screens</div>
+        </div>
+    </div>
+    
+    <div class="py-5"></div>
+    <div class="py-5"></div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<!-- Partially based on https://getbootstrap.com/docs/4.2/examples/checkout/-->
+<html lang="en">
+<head>
+  <title>Create Profile</title>
+
+  <link rel="stylesheet" href="ProfileForm.css">
+</head>
+<body>
+<h1>Create Profile</h1>
+<p>A totally real site that isn't just trying to sell your information to advertisers.</p>
+<form>
+  <fieldset>
+    <legend>Basic Info</legend>
+        
+    <label for="name">Name</label>
+    <input type="text" id="name">
+    <br>    
+        
+    <label for="age">Age</label>
+    <input type="number" id="age">
+    <br>    
+        
+    <label for="email">email</label>
+    <input type="email" id="email">
+    <br>    
+  </fieldset>
+  
+  <fieldset>
+    <legend>Preferences</legend>
+    
+    <label for="socialMedia">What is your favorite social media platform?</label>
+    <select id="socialMedia">
+        <!-- platform list from https://en.wikipedia.org/wiki/Social_media#Most_popular_social_networks -->
+        <option>Facebook</option>
+        <option>Youtube</option>
+        <option>WhatsApp</option>
+        <option>WeChat</option>
+        <option>Instagram</option>
+        <option>QQ</option>
+        <option>QZone</option>
+        <option>Tik tok</option>
+        <option>Sina Weibo</option>
+        <option>Twitter</option>
+        <option>Reddit</option>
+        <option>Baidu Tiba</option>
+        <option>Skype</option>
+        <option>LinkedIn</option>
+        <option>Viber</option>
+        <option>Snapchat</option>
+        <option>Line</option>
+        <option>Pinterest</option>
+        <option>Telegram</option>
+        <option>Tinder</option>
+    </select>
+    <br>
+      
+    <label for="music">What genres of music do you like? (Use Ctrl or Shift to select more than one)</label>
+    <select multiple id="music" >
+        <!-- Categories from https://en.wikipedia.org/wiki/List_of_Grammy_Award_categories -->
+        <option>Pop</option>
+        <option>Dance/Electronic</option>
+        <option>Contemporary Instrumental</option>
+        <option>Rock</option>
+        <option>Alternative</option>
+        <option>R&B</option>
+        <option>Rap</option>
+        <option>Country</option>
+        <option>New Age</option>
+        <option>Jazz</option>
+        <option>Gospel/Contemporary Christian Music</option>
+        <option>Latin</option>
+        <option>American Roots</option>
+        <option>Reggae</option>
+        <option>World Music</option>
+        <option>Children's</option>
+        <option>Musical Theatre</option>
+        <option>Classical</option>
+    </select>
+    <br>
+      
+    <input type="checkbox" id="tmp" checked >
+    <label for="tmp">Please sell my private messages to advertisers.</label>
+  </fieldset>
+  
+  <input type="submit">
+  <button>Cancel</button>
+</form>
+</body>
+</html>
