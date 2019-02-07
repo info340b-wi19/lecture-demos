@@ -71,4 +71,10 @@
 // })
 
 
+// // Temporary local data store
+// let DATA = {
+//     username: "tim",
+//     cookietype: "choclate chip",
+
+// }
 
