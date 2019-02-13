@@ -1,0 +1,89 @@
+'use strict';
+
+let form = document.querySelector('form');
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    console.log("Form sumbmitted!");
+
+    let inputBox = document.querySelector('#queryInput');
+    let query = inputBox.value;
+    console.log("searching for", query);
+
+    //send AJAX request ourselves
+    let url = "https://api.github.com/search/repositories?q="+query
+    console.log("sending request to", url);
+
+    //send the request!
+   
+    //version 1 -just show a callback on the promise from fetch
+    
+    let promise = fetch(url)
+    promise.then(function(response){
+        console.log(response);
+    })
+
+   
+   /*
+    // version 2 -but wait, fetch doesn't return the data it returns the response
+    // so we need to call the .json() method to actually get a usable data 
+    // but .json() also asyncronous so it returns a promise so we need to 
+    // register another callback function with it
+
+    let promise = fetch(url)
+    let updatedBuzzer = promise.then(function(response){
+        let encodePromise = response.json() //extract json content from response
+        return encodePromise;       
+    })
+    
+    // so now we can do the callback for the updated buzzer... here we're no longer in a promise
+    updatedBuzzer.then(function(data){
+        console.log(data);
+    })
+*/
+//version 3 clean up version 2 using chaining them together
+//these 4 lines (console.log doesn't count) is how you get data
+
+/*
+fetch(url)
+    .then(function(response){
+        return response.json();       
+})
+    .then(function(data){
+    console.log(data);
+})
+
+*/
+  
+ 
+// version 4 - show how to handle errors
+
+
+    fetch(url)
+        .then(function(response){
+            return response.json();       
+        })
+        .then(function(data){
+            console.log(data);
+            // throw new Error("HAHAHA");
+        })
+        .catch(function(error){
+            console.log(error.message);
+        })
+        .then(function(){   
+            console.log("final then!")
+        })
+
+    console.log("do more stuff"); //there is no data yet
+
+
+
+
+    
+})
+
+
+function renderRepos(data){
+    $("#content").append("<ul>...")
+
+}
+
