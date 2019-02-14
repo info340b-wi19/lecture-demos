@@ -23,19 +23,22 @@ Slide 4
 HTML Forms
 But first, let's talk about HTML Forms...
 
+THis is a way to gather data from a user.
+
 This is a simple form on the demo screen
 
 There's an input element
 There's a button to submit
 
 Slide 5
-When you click submit, the browser sends out an http request
+When you click submit, the browser sends out an http request, just as if you had clicked on a hyperlink but the content of the form
+will dependon what was on the form.
 
 In this example we are using "method=get" could use post
 
 Get adds parameters to the query string
 
-The Action attribute provides the URI
+The Action attribute provides the URI. In this example the URI is "/signup", this is where we want to send the request to.
 
 If we go to live server, you can see what is on the query string ... react and stars are added as parameters
 

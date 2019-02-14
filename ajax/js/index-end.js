@@ -27,26 +27,26 @@ form.addEventListener('submit', function(event) {               // listen for wh
 
    
    
-    // // version 2 ---SLIDE 16 and 17 ---- but wait, fetch doesn't return the data it returns the response
-    // // so we need to call the .json() method to actually get a usable data 
-    // // but .json() also asyncronous so it returns a promise so we need to 
-    // // register another callback function with it
+    // version 2 ---SLIDE 16 and 17 ---- but wait, fetch doesn't return the data it returns the response
+    // so we need to call the .json() method to actually get a usable data 
+    // but .json() also asyncronous so it returns a promise so we need to 
+    // register another callback function with it
 
-    // let promise = fetch(url)
-    // let updatedBuzzer = promise.then(function(response){
-    //     let encodePromise = response.json() //extract json content from response
-    //     return encodePromise;       
-    // })
+    let promise = fetch(url)
+    let updatedBuzzer = promise.then(function(response){
+        let encodePromise = response.json() //extract json content from response
+        return encodePromise;       
+    })
     
-    // // so now we can do the callback for the updated buzzer... here we're no longer in a promise
-    // updatedBuzzer.then(function(data){
-    //     console.log(data);
-    // })
+    // so now we can do the callback for the updated buzzer... here we're no longer in a promise
+    updatedBuzzer.then(function(data){
+        console.log(data);
+    })
 
 //version 3 --- SLIDE 18 ---clean up version 2 using chaining them together
 //these 4 lines (console.log doesn't count) is how you get data
 
-
+/*
 fetch(url)
     .then(function(response){
         return response.json();       
@@ -54,9 +54,11 @@ fetch(url)
     .then(function(data){
     console.log(data);
 })
+
+*/
   
  
-// // version 4 - show how to handle errors
+// // version 4 --SLIDE 19 -- show how to handle errors
 
 
 //     fetch(url)
@@ -66,7 +68,11 @@ fetch(url)
 //         .then(function(data){
 //             console.log(data);
 //             // throw new Error("HAHAHA");
+//             // renderRepos(data);
 //         })
+//         //better yet
+//            .then(renderRepos);
+
 //         .catch(function(error){
 //             console.log(error.message);
 //         })
