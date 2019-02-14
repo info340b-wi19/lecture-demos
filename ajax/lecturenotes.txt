@@ -42,8 +42,17 @@ The Action attribute provides the URI. In this example the URI is "/signup", thi
 
 If we go to live server, you can see what is on the query string ... react and stars are added as parameters
 
+So you can see through a form, we can make a get call to this api with some query parameters and get back the data in json format.
+
+We want to do this in code so that we get the data for our program.
+
+We will write java script code that will send the http request instead of using a form.
+
+
+
 SLIDE 6
-AJAX
+AJAX - Asynchronous Javasript and XML
+
 Created by Microsoft in the 90s for it's email. GMail and others also adopted and it has become a standard.
 
 Even though the acronym says XML, it sends back json now
@@ -60,6 +69,14 @@ SLIDE 8
 XML is wordy and awkward
 JSON is smaller, easer to parse. 
 It's a collection of key value objects
+
+
+Look at this example between XML and JSON
+
+This JSON is a good example of what you could also manually store as a global var in your
+code if you didn't get the ajax call
+
+
 
 SLIDE 9
 AJAJ never took off. But that's really what it is.
@@ -79,9 +96,13 @@ SLIDE 12
 AJAX requests are built on browser provided xmlhttprequest, but we don't do this. It's too
 complicated. 
 
+This was developed in the 90's.
+
 SLIDE 13
 
 We use the fetch() method which is available in the DOM's API on modern browsers.
+
+Fetch is not supported by all browsers
 
 Look at the caniuse site 
 
@@ -90,12 +111,13 @@ browsers
 
 You have to include this library in your html file like other libraries
 
+Remember you need to include it before you include your own .js files for scope
+
 Here's a github repo for window.fetch (on the slide)
 
 Grab the library from a CDN
 
-All you have to do is include the script file and it will work because the script is there. It 
-defines fetch() for us that works on non-supported browswers.
+All you have to do is include the script file and it will work because the script is there. It defines fetch() for us that works on non-supported browswers.
 
 SLIDE 14
 AJAX requests are asynchronous... 
@@ -137,7 +159,7 @@ Sending the request for data and handling it don't happen at the same time.
 
 So if you provide code further down in your file, but not in the callback
 
-Polyfill Fetch version 3 works with node but not with browswers, so we need to include the 2.1 deal
+Polyfill Fetch version 3 works with node but not with browswers, so we need to include the 2.04 deal
 
 Now demo the pause with the first version of fetch (not the cascading version)
 
@@ -151,6 +173,10 @@ Here's the tricky part
 But wait... the return to the callback is still not actually the data.
 
 Why? because the return is actually the response
+
+Think about getting waiting for a package, yet when it comes, you have another big task to do before
+you can actually get to the data. It's like ordering an ikea table or something and you get the box
+but you can't do anything with it for a while.
 
 The info is actually in there, but it's encoded and just a bunch of 0's and 1's.
 
@@ -181,14 +207,20 @@ I mean, not just wait until the second buzzer actually occurs?
 
 
 SLIDE 18
-We can clean all this up with this syntax
+We can clean all this up with this syntax. We get rid of alot of the intermediate variables
+
+
 
 SLIDE 19
 IF it fails
 
 CATCH - what to do if something explodes
 
+.catch is another method (like .then) that you can call on a promise
+
 the catch will catch it if it happens at any time regardless of where in the chain the error occurs
+
+It also takes in a callback function
 
 We can also have a final .then because catch and all of these .then's return a promise
 
@@ -201,7 +233,9 @@ This is as complicated as our chaining will get in this class
 Demo that the chaining still will run the final .then even if there is an error
 
 
-
+The thing to note, is that you can't directly manipulate the data in the normal flow of 
+your file when it's asynchronous. You have do to it within the second .then() callback when the 
+json object is finally there.
 
 
 
