@@ -1,6 +1,5 @@
 'use strict';
 
-
 //slide 11
 
 let head1 = jQuery('h1');

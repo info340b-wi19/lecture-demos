@@ -7,14 +7,16 @@ Slide 2 - Here again are some links to resources for mental health.
 Slide 3
 Plan for today
 
-I am hoping to have the grading done Friday. I have moved the due date for Stage 2 to be Sunday November 11.
-Stage 3 is currently set to be due 1.5 weeks later on Wedesday November 21
-Stage 4 is set to be due Friday December 7th.
+I have moved the due date for Stage 2 to be Tuesday Feb 19
 
-I'm considering giving 5 points if you turn in stage 3 on time, and not subtracting if you take take until sunday night.
+Stage 3 is currently set to be due 2 weeks later on Tuesday March 5
+Stage 4 is set to be due Friday March 15.
+
 
 Slide 4 - 
 CheckIn Poll
+
+----------------
 
 Slide 5
 How much data do we need for stage 2?
@@ -27,6 +29,10 @@ Previously JQuery made life easier to do DOM manipulation across all browsers. N
 Mostly because you refrain from jquery so you don't want to download a 50k script file if you don't need it.
 Also, there are situations where other libraries/frameworks don't play nicely with jQuery
 
+------------------
+
+SLIDE 6
+
 jQuery is powerful and easy to use. It's easier than directly manipulating the DOM through
 the document object and jscript. 
 React doesn't play nicely with jQuery. 
@@ -37,9 +43,13 @@ library, but it's tested, stable and likely documented.
 You are welcome to use jQuery in stage 2.
 Stage 3 we will be moving to react so you probably won't be using jQuery
 
+--------------
+
 Slide 7
 JQuery is an example of an external libary. We use these so we don't have to build everything ourselves.
 You grab jQuery as an external library
+
+JQuery is like the bootstrap of javascript
 
 Use the CDN so you don't have to download locally
 
@@ -55,7 +65,10 @@ on their machines and won't pay the download cost either
 You need to put the jQuery script above your own jscript file is loaded. Otherwise your script
 won't know about jQuery.
 
+-------------------
 SLIDE 8
+
+jQuery is a global object we can use. 
 
 jQuery() takes a css selector, just like document.queryselector()
 
@@ -71,6 +84,8 @@ Iterating arrays, objects, & strings
 Manipulating & testing values
 Creating composite functions
 
+
+----------------
 SLIDE 9
 Almost all jQuery methods are getter and setter functions. If you pass an argument you are usually setting.
 If you aren't passing an argument you are getting the value.
@@ -93,7 +108,7 @@ Use jQuery to place the ball
 Just about every method does the change and returns a reference back to the changed object
 
 so
-ball..attr('cx', 225).attr('cy', 95)
+ball.attr('cx', 225).attr('cy', 95)
 
 another syntax is:
 ball
@@ -122,6 +137,11 @@ The CSS selector method in jScript is automatically a "foreach"
 SLIDE 14
 
 Adding a new element
+
+In jQuery we can create the whole html element 
+We still have to add it to the page.
+
+append is for jquery, appendchild is for queryselector
 
 Don't add a bunch of new content in jQuery
 
