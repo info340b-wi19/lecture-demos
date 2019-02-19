@@ -12,8 +12,6 @@ class Card {
 
     render() {                                  //render a DOM representation of the card
         let cardDiv = $('<div class="card">')
-     //   let body = cardDiv.append('<div class="card-body>"')
-     //   body.text(this.message)
           cardDiv.text(this.message)
         return cardDiv
     }
@@ -39,9 +37,7 @@ $('#content').append(renderedCard)
 
 //     render() {                                  //render a DOM representation of the card
 //         let cardDiv = $('<div class="card">')
-//      //   let body = cardDiv.append('<div class="card-body>"')
-//      //   body.text(this.message)
-//           cardDiv.text(this.message)
+//         cardDiv.text(this.message)
 //         return cardDiv
 //     }
 // }
@@ -51,8 +47,7 @@ $('#content').append(renderedCard)
 // })
 
 // cards.forEach(function(card){                       // now render each of the cards in the array
-//  //   $('#content').append(renderedCard)
-//     $('#content').append(card.render())
+//      $('#content').append(card.render())
     
 // })
 
@@ -122,8 +117,8 @@ $('#content').append(renderedCard)
 // })
 
 // // see function is called on some object even if it's undefined
-//function foo() {console.log("I was called on", this);}
-//foo();
+// function foo() {console.log("I was called on", this);}
+// foo();
 
 // // Example 4a
 
@@ -175,9 +170,9 @@ $('#content').append(renderedCard)
 // })
 
  
-//// another confusing example
-//let foo = () => 'foo and more foo';
-//console.log(foo());
+// // another confusing example
+// let foo = () => 'foo and more foo';
+// console.log(foo());
 
 // //Example 5
 
