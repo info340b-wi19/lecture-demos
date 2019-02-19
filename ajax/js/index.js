@@ -1,5 +1,10 @@
 'use strict';
 
+let state = {
+    
+    sortorder: 'default',
+    filter: 'default'
+  };
 
 function renderDataList(data){
     let list = document.querySelector('ol');
@@ -12,7 +17,8 @@ function renderDataList(data){
 function renderDataItem(data) {
 
     let li = document.createElement('li');
-    li.textContent = data.name;
+    let textoncard = data.name + 'age: ' +data.age;
+    li.textContent = textoncard;
     console.log(data);
     return li;
 }
@@ -28,37 +34,28 @@ form.addEventListener('submit', function(event) {               // listen for wh
         return response.json();       
 })
     .then(function(data){
-    // console.log(data);
-    renderDataList(data);
+        renderDataList(data);
 })
 })
 
+let sortbybutton = document.querySelector('#sortbutton')
+sortbybutton.addEventListener('click', function(event) {
+    console.log("sort button clicked");
+    sortList();
+})
 
-// function renderTaskItem(task) {
-//     let li = document.createElement('li');
-//     li.textContent = task.description;
-//     if(task.complete) {
-//       li.classList.add('font-strike');
-//     }
-//     //add remove callback
-//     li.addEventListener('click', function() {
-//       task.complete = !task.complete;
-//       renderTaskList();
-//     });
-  
-//     return li;
-//   }
- 
-  
-//   function renderTaskList(){
-//     let list = document.querySelector('ol');
-//     list.innerHTML = ''; //empty out old
-  
-//     state.taskList.forEach((task) => {  //element for each
-//       list.appendChild(renderTaskItem(task)); //add the the list!
-//     });
-   
-//     //show button status
-//     renderInput();
-//     // renderButtonAbility();  
-//   }
+let filterbutton = document.querySelector('#filterbutton')
+filterbutton.addEventListener('click', function(event) {
+    console.log("filter button clicked");
+    filterList();
+})
+
+function sortList() {
+    console.log ("sorting");
+}
+
+function filterList() {
+    console.log ("filtering");
+
+}
+
