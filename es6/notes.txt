@@ -20,7 +20,9 @@ What can I do to help?
 Help debugging
 More time
 
-SLIDE 5
+----------------------
+
+SLIDE 4 continued ... hat we are talking about today
 Syntax features of ES6
 Supported by most modern browsers
 There are ways to get around
@@ -35,6 +37,8 @@ Something you will need for next week (Thursday and beyond)
 
 This is a subset of what you will need to know for the assignments and the project.
 These are the main points. The text has some additional detail you will want to read.
+
+----------------------
 
 Slide 5
 Classes
@@ -70,6 +74,7 @@ Once we have an object we can pass that object into other methods and interact w
 
 So we have 2 new people and aida can say hello to bob.
 
+-----------------------
 SLIDE 6
 
 Toggle back and forth between slide 6 (java) and slide 7 (jscript)
@@ -115,7 +120,7 @@ So getters are useful if you want encapsulation. But it's true that the data is 
 
 We won't do alot of getters in this class.
 
-
+--------------------------
 
 NOW LETS MAKE A CLASS
 
@@ -144,6 +149,7 @@ This is useful because if we want to make lots of different cards we can do so q
 
 See how we can add the additional card quickly on the fly (snow day)
 
+-----------------------
 SLIDE 8
 ES6 Demo 2
 
@@ -171,7 +177,7 @@ Add some additional formatting to the render function to include the "this.Click
 
 And it works. It doesn't currently show the clicked count, but instead the index, but that's okay
 
-
+--------------------
 SLIDE 10
 Now that we keep track of the amount of time they've been clicked,
 Let's add the code to actually do that
@@ -182,6 +188,7 @@ Why???
 
 Doesn't it seem like it should be working? Anything obvious? It's not that clearn
 
+----------------------
 
 SLIDE 11
 
@@ -329,7 +336,7 @@ ES6 Demo 4a with Arrow
 Probably already have shown this in the demo code, but you can see it clean here on the slide
 
 
-
+-------------------------
 SLIDE 17
 ES5 Demo 5
 
@@ -350,7 +357,8 @@ The arrow 'wraps' a function to make sure we get the 'this' passed along
 
 The syntax is annoying, but it works.
 
-SlIDE 19
+-----------------------
+SlIDE 18, 19, 20
 Lots to do. 
 
 The middle problem will be covered in the lab. Ian's gonna do it with you. come to lab
