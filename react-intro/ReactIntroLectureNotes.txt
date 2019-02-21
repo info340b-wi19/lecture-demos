@@ -107,6 +107,8 @@ automatically combines take the java script files into one file and then inject 
 into the page. It adds the script tag itself. 
 We do very little with the html file.
 
+------------
+
 SLIDE 6
 Creating DOM Elements
 
@@ -114,6 +116,8 @@ Review this is how we can create elements using DOM or jQuery
 This is review for all you folks
 Different syntax, but does the same thing
 
+
+--------------
 SLIDE 7
 Hello React
 Here's a syntax for doing the same thing in React
@@ -142,7 +146,7 @@ DEMO EXAMPLE 1
 -----------------------
 
 SLIDE 8
-There is an XML syntax extention for JavaScript called JSX that we use in React which makes the statements look much more like HTML. It stands for JavaScript Extension
+There is an XML syntax extention for JavaScript called JSX that we use in React which makes the statements look much more like HTML. It stands for JavaScript Extension Language
 
 It's a shortcut to the syntax in slide 7
 
@@ -162,7 +166,9 @@ DEMO EXAMPLE 1a
 
 DEMO EXAMPLE 2
 We do a little more complicated by adding a class and embedding the h1 inside a header element
+
 -------------------
+
 SLIDE 9
 Transpiling
 
@@ -355,7 +361,7 @@ See how we instantiate 3 button objects and drop them in. Each it's own instance
 We can create our own css file as well and we can either add to the html
 or in the example we can import a css file into the js file and it'll work too
 
-
+------------------
 SLIDE 20
 HTML Attributes last thing for this lecture
 
