@@ -106,7 +106,7 @@
 //           </header>
 //           <main>
 //             <p>
-//               <Button text="1"/>
+//               <Button text="1"/>     {/* passing in props for the buttons */}
 //               <Button text="2"/>
 //               <Button text="3"/>
 //             </p>
