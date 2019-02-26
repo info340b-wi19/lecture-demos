@@ -97,6 +97,7 @@ We use JSX to define these components
 We can pass things in as props as attribute to show what should be showing
 
 We can use {} to pass things in inline.
+----------------------------
 
 SLIDE 7
 
@@ -167,8 +168,8 @@ Concepts we'll be covering
 
 ------------------
 SLIDE 9
+REACT EVENTS
 
-React Events
 
 There are 2 interactions we want to support
 
@@ -194,9 +195,17 @@ Look at the clicky clicky
 
 It should fail because of a lack of arrow function
 
-SLIDE 10
+
+---------------------------------------
+
+
+SLIDE 10 and SLIDE 11
 Retaining this
 
+There is perhaps a benefit this method for perf reasons because the function isn't instantiated again each time they
+render method is called which it is when the anonomous function is included (wrapped in an arrow function).
+
+EXAMPLE 1A will fix this
 Uncomment the code and it works
 
 Notice what is different between the two arguments in the li...
@@ -214,9 +223,15 @@ SLIDE 12
 
 So now we want to toggle the state of the item
 
-Rather than logging out "clicky clicky", let's toggle the state of the item.
+Rather than logging out "clicky clicky", we'd like to toggle the state of the item.
 
 In this example, we are receiving a function called 'howToToggle' as a prop that we will call to toggle the task each click.
+
+The way we determine is to look at the this.props.task.complete
+
+But the issue is that we can't change a prop...
+
+So looking at the code on the slide, we can't actually change the prop, we need the function to change state.
 
 
 SLIDE 13
@@ -281,7 +296,7 @@ Click 4 - You can access state like with props {this.state.count}
 Don't use something as a state var if it doesn't get used in render()
 
 
-EXAMPLE STATE --- Example 2 on the Task element
+EXAMPLE STATE --- SWITCH TO Example 2 on the Task element
 
 -----------
 SLIDE 17
@@ -289,7 +304,7 @@ SLIDE 17
 Changing state -
 this.setState(stateChanges);
 
-this will both change state and cause a re-render
+This will both change state and cause a re-render
 
 Click - you only need to change the object values that are changing.
 
@@ -305,6 +320,15 @@ AFter setstate gets done, the render is called
 
 It causes the app to re-render
 
+EXAMPLE 2A
+
+There are 3 lines of code to note:
+
+1) We set the this.state in the constructor
+2) We have a line to set the class to strike-through in the getClassName() helper function
+3) We use setState to change clickcount in the handleClick function
+
+
 ----------------
 SLIDE 18
 
@@ -312,10 +336,13 @@ setState() is Asynchronous
 
 It takes time...
 
+See how the code on the slide works... the console.log will not show the updated value
+
+
 ----------------
 Slide 19
 
-EXAMPLE 2a - modifying something based on current state
+EXAMPLE 2B - modifying something based on current state
 
 
 If you wanted to increase this count (modify something based on current state)
@@ -329,242 +356,109 @@ let's store this stuff in state
 let's set stuff based on the initial value passed in the props
 let's get the toggle to work
 
+-------------------------------------------------------
+
+
+Bug in the title showing the number
+
+The 2 at the top should be based on the tasks are complete
+Currently the state info is being tracked by the individual task
+
+But no-one else knows what's going on (parents up the chain)
+
+If we need some value that can be used by multiple components, then we want to be able to share this for all to see what the value is because the whole app is tracking this.
+
+
+See the <app> renders the number (Look at the App component)
+
+THe way we fix this is by lifting up the state
 -----------------
-SLIDE 10: Demo Overview - re-implementing the TaskList
-
-Let's walk through the basic stuff in the app.js file:
-
-Class App - it renders a container with the classlist and the add taskform (which includes the button)
-
-Class TaskList - does the work to map the taskname array into task components.
-Returns an 'ol' element with all the taskscomponents
-
-Class Task - does the stuff on tasks (strike, toggle strike)
-Returns a task (which includes a onClick handler) in an 'li' element
-
-Class AddTaskForm - Handles to "state" variable for updating when the state var for what's in the edit control
-Also calls a callback up the chain in the app object for actually adding a new task to the tasklist (lifting state) 
-
-
-SLIDE 11
-To make this interactive we need to deal with a few concepts:
-
-Events  (like onclick, onfocus, on change, etc)
-Accessing the 'this' from an event callback function (using arrow functions or "public class fields")
-State and State vs Props
-How to change state (use setState())
-Implication that setState() is asynchronous
-Lifting State (Example - how does the tasklist know to refresh when task is added to task ( a sibling) form?)
-
-
-SLIDE 12
-Events:
-Synthetic events - onClick, onFocus, onChange etc...
-The chapter has a link to the React Synthetic events. Link to info in Section 21.1 of the course book. 
-
-We add user interaction the same in React as in DOM and jQuery
-
-We register and event listener and specify a callback function to execute when the event fires
-
-There is still an event object that is passed when the event fires.
-
-You can only register the Synthetic Events (like onClick) on HTML Elements, not the Components that
-you built
-
-Complications here are how to access the "this" Component from events
-It's very common to have a Component's event callback function need to reference
-the instance variables or methods of the component (like with the prop, or other helper methods). 
-The event callback will usually need to have access to the 'this' context
-
-This is now why you can see why we spent time going over arrow functions. This is one place
-where you will need to have access to the 'this' context 
-
-Note in slide 12, we aren't using an Arrow function and if the callback 'doSomething' tried to actually use
-the this context, it would throw the error that its undefined.
-
-
-
-SLIDE 13
-Retaining this
-
-You likely remember we get the cool property with arrow functions that they inherit the parent 'this' context
-allowing access to the access the props for the this object.
-
-Here we see that we can wrap the calling of the callback in an arrow and it works
-
-SLIDE 14 
-Retaining this
-
-The other option is to use a a public Class fields
-It's an experimental JavaScript syntax currently being considered for official inclusion in the JavaScript language.
-However we're writing in JSX which isn't javascript and we are using the Babel transpiler to convert to js and it
-supports this syntax. So we can use it.
-
-There is perhaps a benefit this method for perf reasons because the function isn't instantiated again each time they
-render method is called which it is when the anonomous function is included (wrapped in an arrow function).
-
-
-SLIDE 15
-Demo - onClick - clicking on task in the task listener
-
-Notice that we register the onClick handler here where we are intatiating the task in the return() method
-
-Each task has it's own onClick handler (as is necessary)
-
-We're handling the 'this' issue by usng a public class field (handleClick) which is a public class 
-
-
-SLIDE 16
-Demo onClick on the Form button
-
-Again we register the onClick handler where we are intantiating the button on the form in the return() method
-
-Again 'handleClick' is a public class field which means we get the 'this' context passed along
-
-Notice that we are using the prop 'this.how.ToAdd' to actually add the task... 
-AND this prop was set in the parent 'app' object.  There is a method called 'AddTask()' which is 
-set in the app render() method and passed in with the 'this' context because it is also a public field class
-
-More on why we bother to this 'addtask' in the 'app' rather than in the 'task' object in a bit 
-
-
-SLIDE 17
-React Props
-
-Props are the components configuration. They are immutable as far as the Component receiving them is concerned.
-
-A Component cannot change its props. Each component is responsible to put together its child components
-
-You access props through the 'this.props.propname'
-
-
-SLIDE 18
-
-React State
-
-State is where we can keep track of state data of interactive information. It should only keep track of data
-that changes over time.
-
-For example - Timers, sort order, which model data is showing... selected filters... things that users can alter.
-
-
-SLIDE 19
-Using State
-
-To use state you have to do this:
-
-Call the constructor with 'props' as an argument
-within the constructor 
-- Call the 'super' superclass constructor - super(props)
-- Assign a value to a state instance. This again must be assigned as an object
-
-
-To access state it is similar to accessing 'props', the syntax is: 'this.state.statename'
-
-Here's a test to see if a variable should be state... if it isn't accessed in the render() method,
-it shouldn't be in state.
-
 
 SLIDE 20
-Changing State
+Let's have the Tasklist keep track of the state rather than the individual elements
 
-React state is changed asynchronously
 
-We only change state using the this.setState() method, and we pass in the object reflecting which
-state variables changes should happen. 
+Click once - show that the property is now held in the parent
 
-For example look at the handleClick code. we pass in the stateChanges object which is an object 
-{count: 1}
+click twice - show how you can pass state to the child through a prop to tell them how many they have
 
-Only change the state parameters that need to be updated. stateChanges() merges those changes into 
-the state object
+EXAMPLE 3
+Moving state up all the way to the App (we could pass to the tasklist, but it doesn't really need that info, so we are moving all the way to app). The app needs to know because it needs to know how many things are complete
 
-stateChanges() automatically renders the Component using the render() method
+So we put in an array of tasks into the APP
 
+this.state = { tasks: [] }
+
+or set it to the initial tasks
+
+{tasks: this.props.initialTasks}
+
+-----------------------------
 
 SLIDE 21
-setSTate() is asynchronous
+Passing callbacks - 
 
-The updated state will only be available when the render() function returns...
+The parent component needs to do something when an event occur, so it passes callback functions to the chile component to execute. For example in the slide, there is a callback passed in the prop when the button is clicked. 
 
-This means that there is potential for bugs or weird behavior if you don't do something to handleClick
-
-See the comment //still 0! it hasn't changed yet
-
-For example if you have iterative lines of code that increments a state counter, it is likely that 
-the state won't return from render() before the next line of code re-renders
-
-
-
-
-SLIDE 22
-setState is asynchronous (2)
-
-The solution to this is to pass a callback function as an argument (instead of an object of new values)
-The callback function will be passed the "current" state (and props), and must return the object that
-you want merged into the state.
-
+Click 1 - Lift the method to parent
+Pass the method as prop
+Call the method in the child
+This is how you get the handler to update state in the parent!
 
 
 Do not call setState directly within render(), you'll get into an infinite loop
 
-look at the togglecomplete() method an example dealing with this
 
+-------------------------------
+
+SLIDE 22
+
+Demo Example - App Component - What we've done with the TaskForm
+
+Click 1 will show 
+
+---------------------------
 SLIDE 23
-Lifting Up State
 
+Click 1 will show how this the taskform now updates state in the parent by calling the callback that was passed in as a prop
 
-In React component state is internal to the component -- the parent, siblings, children don't know the state of
-the other Components
-
-But parents can make information available to children through parents
-
-This is how we are able to "communicate" state from parent to child
-
-So how do we communicate state from sibling to sibling ... like the issue we have in our demo?
-We have the TaskList component and the Form component which are siblings
-When the Form has a new task to add to the Tasklist, how can it communicate that the state has changed?
-
-We move the "state" up to the parent from the child (siblings) so that when something in the child
-causes state to change, it's actually updated in the parent, who then can notify all of the children (siblings)
-that they need to refresh
-
+---------------------
 SLIDE 24
-Passing Callbacks
 
-This is done by having the parent function pass a callback function as a prop the child to execute
-Make sure you use an arrow function to bind the this (handle the 'this')
+Use the onChange event handler to set state in the similar way we are dealing with onClick
 
-On this slide you can see how to do it
+Grab the value out of the event object in your event handler, and set the value in to the state variable
 
-MyButton is the child of App
-So we put the handleClick as a prop (function) in the app component (parent)
-
-Then we can pass the function to MyButton in the render() function as a prop
-
-You can see how this is then handled in the MyButton Class
-Rather than running a local method, it can run the prop function which is in the parent
-and thus state is stored in the parent
-
-This function can be registered with the onClick event like any other function
-
-SLIDE 25 (and 26)
-
-Here's how we did it in the demo
-
-The app (parent) now has the addTask method rather than the TaskList (child)
+SEE THE CODE for AddTaskForm to show how this works
 
 
-The method is passed on render to the TaskForm as a prop
 
+--------------------
+
+SLIDE 25
+Making your app Interactive
+
+
+------------------
 
 SLIDE 26
+Here's how you get fetch() to work in React
 
-And this is how the TaskForm handles it
-a variable handleClick is created to preventDefault() and to call the parent AddTask function
-that was passed in as a prop.
+----------------------
 
-This method is registered with the onClick event
+SLIDE 27
+
+Component LifeCycle
+
+componentDidMount() is the one that is called when all components have been put on the screen 
+
+------------------
+SLIDE 28
+AJAX and React
+
+Do your AJAX requests in the componentDidMount method... set call setState() within this function to set you values... which will then call render!
+
+
 
 
 
