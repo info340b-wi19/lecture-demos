@@ -1,10 +1,32 @@
 import React, { Component } from 'react';
 
+// // to import reactstrap SLIDE 7
+// import { Card, CardText, CardBody,
+//   CardTitle, Button } from 'reactstrap';
+
+// // to import react-router-dom SLIDE 12
+// import {Route, Switch, NavLink} from 'react-router-dom';  
+
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {posts: this.props.initialPosts};
+    this.state = {posts: this.props.initialPosts};  //if you wanted it blank- " = {posts: {}}"
   }
+
+// to fetch data SLIDE 5 (Uncomment)
+// componentDidMount() {
+//   fetch('./blogPosts.json').then((response) => {
+//     return response.json()
+//   })
+//     .then((data) => {
+//       console.log(data);
+//       this.setState({posts: data})
+//     })
+//     .catch((err) => {
+//       console.log("ouch");
+//     })
+// }
+
 
   addPost = (text, date) => {
     console.log("adding post");
@@ -16,6 +38,7 @@ class App extends Component {
   }
   
   render() {
+    console.log(this.state);
     let postLinks = Object.keys(this.state.posts).map((date) => {
       return (
         <li key={date}>
@@ -28,6 +51,9 @@ class App extends Component {
       <div className="container">
         <h1>My Blog</h1>
         <nav>
+          
+          {/* Original Nav */}
+
           <ul className="nav">
             <li>
               <a href='/' className="nav-link">Home</a>
@@ -40,10 +66,45 @@ class App extends Component {
             </li>
             {postLinks}
           </ul>
+
+          {/* 2nd Nav - NavLink Example Slide 12  */}
+
+        {/* <ul className="nav">
+            <li>
+              <NavLink to="/" className="nav-link">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" className="nav-link">About</NavLink>
+            </li>
+            <li>
+              <a href='/blog' className="nav-link">Blog</a>
+            </li>
+            {postLinks}
+          </ul> */}
         </nav>
+        
+        {/* Original code instantiating page components */}
+
         <NewPostPage postCallback={this.addPost} />
         <AboutPage />
         <BlogPostList posts={this.state.posts} />
+
+        {/* 1st verssion of code instantiating components with routes         */}
+        
+          {/* <Route exact path="/" component={NewPostPage} />
+          <Route path="/info/about" component={AboutPage} />
+          <Route path="/info" component={MoreInfoPage} />
+          <BlogPostList posts={this.state.posts} />
+         */}
+       
+        {/* 2nd version  of code instantiating components with routes (using switch) */}
+       
+        {/* <Switch>
+          <Route path="/about" component={AboutPage} />
+          <Route path="/info" component={MoreInfoPage} />
+          <Route path="/" component={NewPostPage} />
+        </Switch>
+        <BlogPostList posts={this.state.posts} /> */}
       </div>
     );
   }
@@ -84,6 +145,10 @@ class NewPostPage extends Component {
           onChange={this.handleChange}
           value={this.state.text}
           />
+        {/* use bootsrap button - SLIDE 7? */}
+        {/* <Button color="danger" className="mb-3" onClick={this.handleClick}>
+          Post! 
+        </Button>  */}
         <button className="btn btn-primary mb-3" onClick={this.handleClick}>
           Post!
         </button>
@@ -99,6 +164,18 @@ class AboutPage extends Component {
       <div>
         <h2>About</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, amet cumque. Quasi esse facilis quisquam recusandae quam deleniti suscipit, libero dolore tenetur dignissimos expedita neque repellendus accusantium mollitia, dicta id.</p>
+      </div>
+    );
+  }
+}
+
+//Added to demonstrate routing SLIDE 12
+class MoreInfoPage extends Component {
+  render() {
+    return (
+      <div>
+        <h2>More Info</h2>
+        <p>I am more info... everybody knows that</p>
       </div>
     );
   }
@@ -121,6 +198,14 @@ class BlogPost extends Component {
     let post = this.props.post;
 
     return (
+ //Use Bootstrap cards instead -- SLIDE 7
+      // <Card>
+      //   <CardBody>
+      //     <CardTitle>Post on {date}</CardTitle>
+      //     <CardText>{post}</CardText>
+      //   </CardBody>
+      // </Card>
+ 
       <div>
         <h2>Post on {date}</h2>
         <p>{post}</p>
