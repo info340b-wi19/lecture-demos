@@ -7,7 +7,8 @@ React lifeCyle + AJAX Review
 React Libraries 
 React Router
 ------------------------
-SLIDE 3
+SLIDE 3 - 
+
 Stage 3
 Have you already met up with your partners?
 I'm still working on finishing the grading. Hope to be done by Friday
@@ -17,14 +18,14 @@ Let me know which of the 2 projects you are going to go with for Stage 3 so I ca
 If you are getting data that isn't real yet there is data available from api, try and get that working for stage 3
 
 ---------------------
-SLIDE 4
+SLIDE 4 
 
 Today our demo is with a blog page
 
 Bring up the Demo
 
 Open Visual Code
-
+----------DESCRIPTION OF EXISTING APP START----------
 Start at index.js
 
 We've got a Blog_posts data, and array with key
@@ -36,9 +37,9 @@ Then in app.js
 You can see that the initialPosts prop
 Get's added to my state, so I can change later
 
-I have an addpost function
+I have an addpost function - it's how we add posts
 
-My render() function takes state and maps it to some 
+My App render() function takes state and maps it to some 
  convert to a list of link elements which will be part of the navigation...
 
 See that the <nav> contains home, about, blog, then the dates I pass in {postlinks}
@@ -49,15 +50,15 @@ AboutPage
 BlogPostList
 
 The ABOUT page just returns static content
-
+--- 
 The BlogPostList - takes in a prop of list of posts and maps them to blogpost elements
-
+---
 The blogpost elements renders a div that says post on some date, then the content
 
 It's similar to the same pattern, in the to-do list
 We have a list that calls an item component
 
-
+----
 The form is a control form ("form-control") so whenever you modify the the date, or the text input ("what do you want to do"), That will cause the onChange so handleChange gets called 
 That function looks at each event that happens to see if it came from the text or the date, 
 and use that to setState which will change the state of the form component, changing the state of the form causes it to re-render and then do display the content in the bottom that i typed in.
@@ -69,8 +70,11 @@ We hijack, and call the callback function that was passed
 
 Whatever was given we will pass in the current values of state
 
-postCallback is handed as props to my new post page, and teh function which is called is addPost method (addPost is a public class field - remember)
+postCallback is handed as props to my new post page, and the function which is called is addPost method (addPost is a public class field - remember)
 
+---
+addPost
+Don't get too caught up in this code for addPost right now...
 When ever addPost is called, setState is called with text and state
 We use the callback version of doing this where we provide a callback
 
@@ -87,9 +91,11 @@ Then by calling setState, it causes render to be called again (with the new stat
 Whew... Very similar to what we did with the todo example... 
 
 So this is great.
-
-
+----------DESCRIPTION OF EXISTING APP END----------
+------------------------------
 -------------
+
+FETCHING DATA
 The next step, what happens if having BlogPosts as a variable I instead want to load from a data file, or a database, 
 
 In the folder
@@ -213,7 +219,7 @@ It is bootstrap within react
 
 Use this one... it's version 4. 
 
-carosoul, navbar... this is how you do this
+carousel, navbar... this is how you do this
 
 bootstrap uses jQuery, so we need to use this library instead.
 
@@ -264,10 +270,21 @@ Single page applications
 
 When you click on the nav on the right, the URL changes but the nav doesn't re-render
 It only renders part of the page, but it has a different URL
+IF you watch the left nav... the page doesn't reload
+It's almost like I'm making an AJAX call
+it looks like you are going to a new page, but really it's the same page
 
 We are making a single page application, and it re-renders with a new URL, but it doesn't rerender everything
 
 We can cut the URL and paste into a new browser and it'll render the whole page
+
+We're going to do this with react
+
+It's not as complicated as it might seem
+
+
+One page (index.html). Looks like multiple pages
+
 
 ----------------
 SLIDE 11
@@ -287,7 +304,26 @@ That's the concept
 
 React-router gives us the components to do this for us.
 
+Client-side Routing
 
+So how do we do this in React?
+
+If the URL matches a route, render this component!
+
+Render a react component... but we use conditional rendering
+
+WE use an if statement to determine which component we want to show...
+
+Do we show the "my drive" component? Or do we show the "folder" component
+
+WE make that determination based on what's in the URL bar
+Look at the Slide
+
+We can look at the current urls
+
+If the url is home - we renter <homepage>
+
+If it's <about> we render <aboutpage>
 ---------
 
 
@@ -333,7 +369,7 @@ so now the app is aware of the URL
 AND now we can do some conditional rendering work
 
 ******DO THIS
-in the Render() for teh app Near line 66
+in the Render() for thh app Near line 66
 
 Show the 1st version with routes
 
@@ -395,11 +431,9 @@ So this is how we fix that
 -------------
 
 
-End of lecture!
-
-
-
 NAVLINK
+
+The anchor tag sends a get request and it goes to a separate webpage
 
 We can use this in the nav so that it doesn't re-render the whole page
 
@@ -407,155 +441,10 @@ It instead just loads the things we want
 
 
 
-
+End of lecture!
 --------------------------
 
-SLIDE 3
-How to install something external libraries with NPM?
 
-When you install something via NPM it gets listed in the packages.json file
-
-
-SLIDE 4
-So lets talk about Bootstrap javascript thing... it uses jQuery. We don't want to use
-that. It's going to end up using jQuery.
-React won't work well together.
-
-React might not be able to keep track of everything.
-
-So we want to find a react version of bootstrap in React
-
-The one that works the best is ReactStrap. It uses Bootstrap 4 components
-
-We import this library using NPM
-
-And can use the reactstrap components once they have been imported, as 
-if we had written the components ourselves
-
-So we install these two things:
-npm install reactstrap
-npm install react-router-dom
-
-SLIDE 5
-Collapse() Example
-
-We add added the code for collapse()
-modified it a bit by storing the state of collapse in a state prop
-
-added the toggle function (as a public class so we don't lose the 'this')
-
-We let react in on the stuff now...
-
-If you have installed jQuery already...
-It's okay to have it installed
-it's okay to have it as a dependency
-Provided you aren't using it...
-
-You can delete from your dependency listed
-You can run uninstall with NPM
-If you use uninstall, it'll both delete the line from the package.json file and
-remove from the node modules folders
-
-SLIDE 6
-Plan for Today
-
-This is new material. Not really any new syntax. Different components
-
-Not required for Stage 3
-
-You will need to use for Stage 4
-
-If you want to do some client side routing... feel free.
-
-SLIDE 7
-Single page application with lots of pages (urls) with different content, but have some shared 
-components... like same nav bar, same banners, or footers
-
-Have multiple pages, but still have to reload the page every time we click a button.
-
-Demo - Google Drive
-
-Notice that the page currently has drive.google.com/drive/my-drive
-If I click on a folder, notice that the URL changes, and some of the page rerenders
-
-IF you watch the left nav... the page doesn't reload
-It's almost like I'm making an AJAX call
-it looks like you are going to a new page, but really it's the same page
-
-We're going to do this with react
-
-It's not as complicated as it might seem
-
-
-One page (index.html). Looks like multiple pages
-
-
-SLIDE 8
-Client-side Routing
-
-So how do we do this in React?
-
-If the URL matches a route, render this component!
-
-Render a react component... but we use conditional rendering
-
-WE use an if statement to determine which component we want to show...
-
-Do we show the "my drive" component? Or do we show the "folder" component
-
-WE make that determination based on what's in the URL bar
-Look at the Slide
-
-We can look at the current urls
-
-If the url is home - we renter <homepage>
-
-If it's <about> we render <aboutpage>
-
-
-make sense?
-
-SLIDE 9
-react-router
-
-There are a number of ways to get access to the browser URL
-
-So this is where we use the external library
-
-React router
-
-1st in class version of doing client side routing... most people use this
-
-React Router is a library that do the "if" statement work for use
-
-If the URL is what you want... it'll display this component
-
-It does the if statement for us
-
-react router dom - works for the web. That's the one to use. There's a server side one too, but we
-want the dom one for client side
-
-Notice it's in the package.json file
-
-Use version 4.... don't use version 3
-
-
-Remember we import this...
-
-
-SLIDE 10
-Demo
-
-
-Looking at the Demo
-It's a Demo
-Currently is shows 
-
-- welcome page
-- about page
-- blogpost listed
-
-If I click on these hyperlinks in the NAV , if I click on these the URL changes and the page refreshes
 
 The anchor tag sends a get request and it goes to a separate webpage
 
