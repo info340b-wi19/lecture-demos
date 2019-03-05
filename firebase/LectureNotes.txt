@@ -1,0 +1,496 @@
+Get the lecture Repo 
+npm install
+get the demo running (npm start)
+Login to Slides
+Login to Firebase
+
+
+SLIDE 2 ----------------
+Plan for today
+
+
+SLIDE 3 ----------------
+
+Stage4
+We are shooting for teams of 4. We can handle teams of 3 or 5
+as well. 
+
+The goal is that you leverage some of the stuff you have done before
+
+The scope of the product is basically 2x what you did in stage 3.
+
+It might get a little complicated. I'm not going to put you into groups initially.
+
+Some of you already have a group of 4. 
+
+
+
+SLIDE 4 -----------------
+
+Stage 4 - scope
+2 major features
+So by combining 2 teams you end up with 2 major features because each of you
+had one already
+
+Features should have a reason for doing something. Not just turning buttons on 
+and off that shows up more buttons.
+
+It doesn't have to have alot of business value, but it needs to have a purpose.
+
+It needs to be interactive. The user takes action 
+They use the app to do something. 
+
+Complex enough to do mulitple steps.
+
+Clicking on a seach form is not sufficient. Can we do more complex forms
+For example, once the information is there, can I do something with it... like
+sort, filter, etc... Multiple steps
+
+A search form on it's own not. A search form that allows the user to dig,
+
+User login is not a feature on its own 
+But if the user has some preferences, where they adjust the application in differnt
+ways for a purpose. What are the goals the user wants to achieve?
+
+2 things - 2 notable intersting things
+
+Also 
+Support routes
+Support firebase database
+
+It's likely these features are in support of your 2 features.
+
+
+
+SLIDE 5 ---------------
+
+Stage 4
+
+Client side routing - have 3 or more routes
+So one route for each feature (2)
+And one route for something like an about page
+
+Data persistence
+IT's a little bit heavy, but not new syntax
+
+Saving data in a database online
+
+It's available for other apps to update...
+
+ex- reviews that users submit for your restaurants
+ex- something about reviews on the apartments you are showing
+ex - could track usage logs... probably not the best option
+
+You just need to do stuff where you read and write from the db.
+
+Your homework should help get this working in your app.
+
+
+SLIDE 6 ----------------
+Stage 4
+Accessible and Responsive
+
+Frictionless, well designed
+Understandable
+
+Feedback on users... something should change when a user clicks a buttons
+ex: asynchronous actions should have a spinner
+ex: error message (not console.log)
+
+Implementation - organization, comments, variable names
+deploy your app
+
+Break up your components appropriately in .js files 
+
+--- 
+
+SLIDE 9 --------------------
+Calendar
+
+The project demos will be where the teams can demo... informal
+Let me show you what I built
+
+The project is due Friday night. But it needs to be workable by Thursday's demo.
+This gives you a chance to fix the last couple issues that you might have
+discovered during the demo
+
+There is a problem set this week
+
+It's technically 2 problems, but really one piece of code with 2 jest tests
+
+The demo should help with the problem set.
+
+And what you do in the problem set should transfer pretty well to your project
+
+
+
+SLIDE 10 ----------------------
+
+Questions that have come up from React the past week:
+
+componentDidMount()
+
+how to organize react components
+
+
+
+SLIDE 11 ----------------------
+
+componentDidMount()
+
+This slide shows a constructor for the SignupForm from today's demo
+
+Notice you can initialize state in the constructor, however you can't call setState() in the constructor. It would cause errors.
+
+componentDidMount() is used:
+If you read in data initially and need to set state to get the correct state data setup in order to render things correctly, you can't do this in the constructor
+
+It's an asynchronous process and it is likely that the DOM won't be rendered before setState() is called. This will cause problems.
+
+The componentDidMount() callback function takes care of this issue.
+If you overridde this, then this will be called right after the DOM is rendered and setState() will workable
+
+SLIDE 12 ----------------------
+
+componentDidMount 2
+
+Here's an example from the demo that we will get to in the demo, but it illustrates when this might occur
+We'll be grabbing data from firebase and will want to call this.setState on our state variables right off the bat
+But we can't do it in the constructor
+
+
+
+
+
+SLIDE 13 ------------------------
+How to organize components
+Let's look at this example
+
+IF you break this page into chunks, or boxes
+
+The top purple could be the QuestionBox
+
+Then the next list of questions is another box
+
+Yes, it's a box that contains subcomponents
+
+And it's dynamic
+
+So we might need to create a component that contains sub components (the answers)
+
+
+
+SLIDE 14 --------------------
+
+So here is some sample code for how we might do this
+We create a QuestionBox element
+We create an AnswerBox element
+And the AnswerBox then takes as a prop an array of individual answer elements
+
+We've seen this before
+
+There is no perfect way to organize. Try and keep the levels to 2 or 3 deep. 
+
+
+SLIDE 15 --------------------
+
+Our Demo today
+
+
+SLIDE 16 -------------------
+
+App.js
+we have a signupform component which we import
+we render the <signupform/>
+
+Index.js
+The normal stuff
+
+
+SLIDE 17 ------------------
+
+Signup.js part 1
+
+Just shows the constructor
+
+Notice we initialize 3 state variables:
+Email
+password 
+username
+
+These are 3 things in our form. You will see that these are 3 things
+that firebase also stores
+
+
+SLIDE 18 ------------------
+
+Signup.js part 2
+
+Here are the callback placeholders in the files
+
+In our demo we ae going to update 3 of these callbacks
+handleSignup
+handleSignIn
+handleSignOut
+
+The handlechange callback is already coded. it takes care of userinput
+in the form
+
+
+SLIDE 19 ------------------
+
+Signup.js part 3 (1st half of render())
+
+Notice at the top, there's code which will render an error based on 
+whether a state variable for error has been set
+
+Notice at the top there's code to render who is logged in if a state variable
+has been set
+
+Then notice that the email and password are saved in state variables
+
+
+
+SLIDE 20 ------------------
+
+Signup.js part 4 (2nd half of render())
+
+Again, username (displayname) is stored in state variable
+
+Here's where the buttons are, and the callbacks shown above are registered
+
+
+
+
+SLIDE 21 ---------------------
+
+Firebase Demo - Go online and show Firebase
+
+Create a new project
+
+Make it a unique 
+
+Free Service, you have plenty of storage space for your projects
+
+Accept terms
+
+This gets everything set up
+
+Now we have a project and we are taken to the dashboard for our
+project
+
+What data is in the db, what users have signed up.
+
+There are tabs on the left
+
+Authentication - we are doing this today
+DB is on the left too, we'll cover this on Thursday
+
+To interact we need to access the firebase object from our project 
+
+Click the </> to get the code to add firebase to your web app
+
+It's defining a configuration object with a bunch of api keys
+
+here's the access info for this project
+
+it runs some code to do the configuration
+
+
+
+SLIDE 22 -------------
+
+Firebase integration with React app
+
+To get it running we need to install and load the firebase library
+
+Just like how we install the router, react strap
+
+npm install firebase
+
+There are lots of different subcomponents for firebase
+
+The firebase app does the general firebase methods
+
+You only need to import the things you care about using
+
+When our index loads, this will run and firebase will be ready to roll
+
+
+
+SLIDE 23 ---------------
+
+Here's what it looks like in our demo:
+
+Firebase modules are imported. 
+
+Firebase config script is added along wih the initialize call
+
+
+
+SLIDE 24 ------------------
+
+Authentication on firebase console
+There are lots of providers that work with firebase
+
+We'll use Email/Password for this demo. It's less complicated
+
+You have to flip the switch to enable this.
+
+
+Clicking on the user tab will show you the list of users who have been added
+
+Currently we have no users
+
+How to get this signup to work
+
+In the form, type in the 3 things into the form and we'll add a user
+
+
+
+SLIDE 25 -----------------
+
+Creating users in your React code
+
+use createUserWithEmailAndPassword method - incredibly descriptive method name!
+
+createUser method is called on the firebase.auth() object. 
+
+This is a an asynchronous method that returns a userCredential object
+
+
+
+SLIDE 26 ---------------------
+
+Signup.js
+
+in our code:
+To do this we need import the 'firebase/auth'
+
+If we don't include the /auth stuff we won't have those functions available
+
+Need to import the firebase object here too
+import firebase from 'firebase/app';
+
+createUserWithEmailAndPassword() Takes in two arguments, the email and password, which we are storing in state.
+
+See the arrows...
+
+This is code you guys have seen before
+
+These return promises are just like what we see with fetch()
+
+It gets passed in an object representing that firebase user "userCredential"
+
+Note that this demo code uses a state variable errorMessage which we
+set when an error is caught (in other places in the code as well)
+
+Show how an error in the email shows an error
+
+In this example we are also going to store a DisplayName "username"
+There's also a url for a photograph
+
+Those are the only other things we can store in the firebase auth object
+
+The updateProfile() is also asynchronous
+
+So again we get a promises
+
+We have the return upDatePromise so that the cascading works
+
+
+
+SLIDE 27 ---------------------
+
+Authentication Events signin or signout
+
+Register a listener to determine which user is signed in and to manage when a user signs out or logs in
+
+So the firebase().auth.onAuthStateChanged() method returns the call back which will turn off the listener.
+
+
+
+
+SLIDE 28 -------------------
+
+Authentication events in your React code
+
+Here's the code in our demo
+There are two snippets, 
+
+one to register the listener in componentDidMount()
+one to unregister when the component is removed from the DOM
+
+Notice that in order to keep the scoping of the variables here, we use 
+a instance variable "this.authUnSubFuntion"
+
+This is one place where we can conveniently handle out of scope.
+
+Can't demo this because our demo doesn't unmount
+
+State is only used for rendering so we use an instance variable.
+
+
+
+
+
+SLIDE 29 -------------------
+
+Signing in and out in your React code
+
+The firebase.auth() variable will keep track of which Firebase User is currently logged in—and this information persists even after the browser is closed. This means that every time you reload the page, the firebase.auth() function will perform the authentication and “re-login” the user.
+
+Signin in and out in your React code
+
+Again use the firebase.auth object
+The methods are well named again
+
+The onAuthStateChanged() method takes a callback as a parameter, which will be handed a value representing the current Firebase User (or undefined if no one is logged in).
+
+The most common practice is to then take this passed in object and assign it to a more global variable, such as a state variable in a React function (e.g., this.setState({currentUser: firebaseUser})).
+
+
+SLIDE 30 -------------------------
+
+When you initially sign up, you are signed in, in firebase
+
+Demo this in the form
+
+Notice that the user is displayed at the top of the form because our code
+has the code in the render(), checking to see if there is a user logged
+in then we use the DisplayName
+
+
+Review what we just did
+
+Setup firebase stuff 
+import firebase
+create user 
+sign in
+sign out
+add event listener for log in and logout
+
+We use the listener to update the state which calls setState() which rerenders which will show the new user.
+
+
+
+
+Now let's take a shot at figuring out who is working with who 
+for stage 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
