@@ -118,7 +118,7 @@ They handle hosting
 They also provide a database 
 We'll work with the realtime db
 They supply user authentication (today)
-So there's a wayto create user accounts and save passwords
+So there's a way to create user accounts and save passwords
 Very little work to do this
 
 So we can have a db without having to do alot of work
@@ -236,7 +236,13 @@ So we don't need to include the firebase stuff from the web because we're going 
 
 But we do need to include it in our index.js
 
-So add that line.
+****** added 1 in index.js
+So add the 2 blocks of code 
+-- import firebase from 'firebase/app' 
+-- var config = {...
+}
+
+
 
 Then we also need to grab all the access keys we need from that <> in firebase
 
@@ -425,6 +431,7 @@ When you initially sign up, you are signed in, in firebase
 Demo this in the form
 
 ***** Uncomment code for sign in and Sign out STEP 5
+There are 2 blocks of code, one for sign-in, other for sign out
 
 
 Notice that the user is displayed at the top of the form because our code
@@ -444,97 +451,6 @@ sign out
 add event listener for log in and logout
 
 We use the listener to update the state which calls setState() which rerenders which will show the new user.
-
-
-
-
-Now let's take a shot at figuring out who is working with who 
-for stage 4
-
-
-----------------------------
-SLIDE 4 -----------------
-
-Stage 4 - scope
-2 major features
-So by combining 2 teams you end up with 2 major features because each of you
-had one already
-
-Features should have a reason for doing something. Not just turning buttons on 
-and off that shows up more buttons.
-
-It doesn't have to have alot of business value, but it needs to have a purpose.
-
-It needs to be interactive. The user takes action 
-They use the app to do something. 
-
-Complex enough to do mulitple steps.
-
-Clicking on a seach form is not sufficient. Can we do more complex forms
-For example, once the information is there, can I do something with it... like
-sort, filter, etc... Multiple steps
-
-A search form on it's own not. A search form that allows the user to dig,
-
-User login is not a feature on its own 
-But if the user has some preferences, where they adjust the application in differnt
-ways for a purpose. What are the goals the user wants to achieve?
-
-2 things - 2 notable intersting things
-
-Also 
-Support routes
-Support firebase database
-
-It's likely these features are in support of your 2 features.
-
-
-
-SLIDE 5 ---------------
-
-Stage 4
-
-Client side routing - have 3 or more routes
-So one route for each feature (2)
-And one route for something like an about page
-
-Data persistence
-IT's a little bit heavy, but not new syntax
-
-Saving data in a database online
-
-It's available for other apps to update...
-
-ex- reviews that users submit for your restaurants
-ex- something about reviews on the apartments you are showing
-ex - could track usage logs... probably not the best option
-
-You just need to do stuff where you read and write from the db.
-
-Your homework should help get this working in your app.
-
-
-SLIDE 6 ----------------
-Stage 4
-Accessible and Responsive
-
-Frictionless, well designed
-Understandable
-
-Feedback on users... something should change when a user clicks a buttons
-ex: asynchronous actions should have a spinner
-ex: error message (not console.log)
-
-Implementation - organization, comments, variable names
-deploy your app
-
-Break up your components appropriately in .js files 
-
---- 
-
-
-
-
 
 
 
