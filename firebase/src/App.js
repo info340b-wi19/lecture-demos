@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-//added 2
-import firebase from 'firebase/app';
+// //added 2
+// import firebase from 'firebase/app';
 
 export default class App extends Component {
     render() {
@@ -25,48 +25,48 @@ export class SignUpForm extends Component {
 
     }
 
-    // Authentication - register state changes STEP 4
+    // // Authentication - register state changes STEP 4
 
-    componentDidMount() {     //since it's an asynchronous process we do it in component did mount
+    // componentDidMount() {     //since it's an asynchronous process we do it in component did mount
 
-        //when I signed in or signed out
-        firebase.auth().onAuthStateChanged((firebaseUser) => {
-            if (firebaseUser) {                 //if exists, then we logged in
-                console.log("Logged in as", firebaseUser.email);
-                this.setState({ user: firebaseUser })
-            } else {
-                console.log("Logged out");
-                this.setState({ user: null })
-            }
-        })
+    //     //when I signed in or signed out
+    //     firebase.auth().onAuthStateChanged((firebaseUser) => {
+    //         if (firebaseUser) {                 //if exists, then we logged in
+    //             console.log("Logged in as", firebaseUser.email);
+    //             this.setState({ user: firebaseUser })
+    //         } else {
+    //             console.log("Logged out");
+    //             this.setState({ user: null })
+    //         }
+    //     })
 
-    }
+    // }
 
         //A callback function for registering new users
         handleSignUp = () => {
             this.setState({ errorMessage: null }); //clear old error
 
-            //code to sign up users SLIDE 23 -- STEP 3
+            // //code to sign up users SLIDE 23 -- STEP 3
 
-            console.log("Creating user", this.state.email);
+            // console.log("Creating user", this.state.email);
 
-            firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-                .then((userCredential) => {
-                    let user = userCredential.user;
-                    console.log(user);
+            // firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+            //     .then((userCredential) => {
+            //         let user = userCredential.user;
+            //         console.log(user);
 
-                    let updatePromise = user.updateProfile({ displayName: this.state.username })
-                    return updatePromise;
-                })
-                .then(() => {   //this updates the state so that it immediately updates the banner
-                    this.setState((prevState) => {
-                        let updatedUser = { ...prevState.user, displayName: this.state.username }
-                        return { user: updatedUser }; //updating the state
-                    });
-                })
-                .catch((err) => {
-                    this.setState({ errorMessage: err.message });
-                })
+            //         let updatePromise = user.updateProfile({ displayName: this.state.username })
+            //         return updatePromise;
+            //     })
+            //     .then(() => {   //this updates the state so that it immediately updates the banner
+            //         this.setState((prevState) => {
+            //             let updatedUser = { ...prevState.user, displayName: this.state.username }
+            //             return { user: updatedUser }; //updating the state
+            //         });
+            //     })
+            //     .catch((err) => {
+            //         this.setState({ errorMessage: err.message });
+            //     })
 
         }
 
@@ -74,24 +74,24 @@ export class SignUpForm extends Component {
         handleSignIn = () => {
             this.setState({ errorMessage: null }); //clear old error
 
-            //code to sign in users STEP 5 SLIDE 27
-            firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-                .then((userCredential)=> {
-                    let firebaseUser = userCredential.user;
-                    console.log(firebaseUser);
-                    this.setState({user:firebaseUser});
-                })
-                .catch((err) => {
-                    this.setState({ errorMessage: err.message });
-                })
+            // //code to sign in users STEP 5 SLIDE 27
+            // firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+            //     .then((userCredential)=> {
+            //         let firebaseUser = userCredential.user;
+            //         console.log(firebaseUser);
+            //         this.setState({user:firebaseUser});
+            //     })
+            //     .catch((err) => {
+            //         this.setState({ errorMessage: err.message });
+            //     })
         }
 
         //A callback function for logging out the current user
         handleSignOut = () => {
             this.setState({ errorMessage: null }); //clear old error
 
-            // code to sign out users STEP 5 SLIDE 27
-            firebase.auth().signOut();
+            // // code to sign out users STEP 5 SLIDE 27
+            // firebase.auth().signOut();
         }
 
         handleChange = (event) => {
