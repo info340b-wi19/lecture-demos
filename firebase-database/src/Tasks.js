@@ -42,7 +42,7 @@ export default class TaskApp extends Component {
       
       //allowing us to make a new array of objects by using the map method
       let tasks = taskIds.map((taskId) => {
-        //return {id: taskId, complete: value[taskId], description: value[taskID]}
+        // return {id: taskId, complete: value[taskId], description: value[taskID]}
         return {id: taskId, ...value[taskId]}
       })
 
@@ -57,25 +57,25 @@ export default class TaskApp extends Component {
 
     //*******  sample MESSAGE CODE (lecture before we get to tasks)
   
-    console.log("Adding new task: ", taskDescription);
-    let messageRef = firebase.database().ref('message')
-    messageRef.set(taskDescription)
-      .catch((err) => {
-        console.log(err);
-      })
+    // console.log("Adding new task: ", taskDescription);
+    // let messageRef = firebase.database().ref('message')
+    // messageRef.set(taskDescription)
+    //   .catch((err) => {
+    //     console.log(err);
+    //   })
 
 
-  //   // ****** **** sample TASKS CODE for adding tasks in lecture for 2nd half with tasks
+    // ****** **** sample TASKS CODE for adding tasks in lecture for 2nd half with tasks
 
-  //  // if(userId != "Tim Carlson")  //if you want to keep someone from writing to the tasks
+   // if(userId != "Tim Carlson")  //if you want to keep someone from writing to the tasks
 
-  //   let newTask = {
-  //     description: taskDescription,
-  //     complete: false
-  //   }
+    let newTask = {
+      description: taskDescription,
+      complete: false
+    }
 
-  //   let tasksRef = firebase.database().ref('tasks');
-  //   tasksRef.push(newTask);
+    let tasksRef = firebase.database().ref('tasks');
+    tasksRef.push(newTask);
 
     
   }
