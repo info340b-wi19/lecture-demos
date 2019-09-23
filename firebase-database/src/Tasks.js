@@ -42,7 +42,7 @@ export default class TaskApp extends Component {
       
       //allowing us to make a new array of objects by using the map method
       let tasks = taskIds.map((taskId) => {
-        //return {id: taskId, complete: value[taskId], description: value[taskID]}
+        // return {id: taskId, complete: value[taskId], description: value[taskID]}
         return {id: taskId, ...value[taskId]}
       })
 
@@ -55,7 +55,7 @@ export default class TaskApp extends Component {
   //add a new task to the list
   addTask = (taskDescription) => {
 
-    // *******  sample MESSAGE CODE (lecture before we get to tasks)
+    //*******  sample MESSAGE CODE (lecture before we get to tasks)
   
     // console.log("Adding new task: ", taskDescription);
     // let messageRef = firebase.database().ref('message')
@@ -77,15 +77,7 @@ export default class TaskApp extends Component {
     let tasksRef = firebase.database().ref('tasks');
     tasksRef.push(newTask);
 
-    // this.setState((prevState) => {
-    //   let newTask = {
-    //     id: prevState.tasks.length + 1,
-    //     description: taskDescription,
-    //     complete: false
-    //   }
-    //   let updatedTasks = prevState.tasks.concat(newTask)
-    //   return {tasks: updatedTasks};
-    // })
+    
   }
 
   //change the completedness of the given task
